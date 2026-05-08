@@ -35,11 +35,11 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
-
-          {{-- <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          @foreach ($doctors as $doctor)
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="doctor-card">
               <div class="doctor-image">
-                <img src="assets/img/health/staff-1.webp" alt="Dr. Marcus Johnson" class="img-fluid">
+                <img src="{{ $doctor->profile }}" alt="{{ $doctor->name }}" class="img-fluid">
                 <div class="doctor-overlay">
                   <div class="social-links">
                     <a href="#!"><i class="bi bi-linkedin"></i></a>
@@ -49,24 +49,24 @@
                 </div>
               </div>
               <div class="doctor-content">
-                <h4>Dr. Marcus Johnson</h4>
-                <span class="specialty">Cardiologist</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua.</p>
+                <h4>{{ $doctor->name }}</h4>
+                <span class="specialty">{{ $doctor->specialist }}</span>
+                <p>{{ $doctor->short_bio }}</p>
                 <div class="doctor-meta">
                   <div class="experience">
                     <i class="bi bi-award"></i>
-                    <span>15+ Years Experience</span>
+                    <span>{{ $doctor->years_of_experience }} Years Experience</span>
                   </div>
                   <div class="department">
                     <i class="bi bi-building"></i>
-                    <span>Cardiology Dept.</span>
+                    <span>{{ $doctor->department }}</span>
                   </div>
                 </div>
                 <a href="appointment.html" class="btn-appointment">Book Appointment</a>
               </div>
             </div>
-          </div> --}}
+          </div>
+        @endforeach
 
         </div>
 

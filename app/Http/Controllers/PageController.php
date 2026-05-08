@@ -21,7 +21,6 @@ class PageController extends Controller
     public function doctors()
     {
         $doctors = Doctor::get();
-        dd($doctors);
         return view('pages.doctors', [
             'doctors' => $doctors
         ]);
