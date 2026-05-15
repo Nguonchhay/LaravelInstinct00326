@@ -42,6 +42,9 @@ class DoctorController extends Controller
 
     public function destroy(Doctor $doctor)
     {
+        if (!auth()->user()->can('delete-doctor')) {
+            return redirect()->route('backends.doctors.index');
+        }
         $doctor->delete();
         return redirect()->route('backends.doctors.index');
     }

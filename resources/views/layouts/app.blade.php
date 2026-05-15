@@ -75,7 +75,13 @@
             <li><a href="departments.html">Departments</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="{{ route('pages.doctors') }}">Doctors</a></li>
-            <li><a href="{{ route('backends.dashboard') }}">Admin Site</a></li>
+            <li>
+              @auth
+                <a href="{{ route('backends.dashboard') }}">
+                  Admin Site - {{ Auth::user()->name }}
+                </a>
+              @endauth
+            </li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
