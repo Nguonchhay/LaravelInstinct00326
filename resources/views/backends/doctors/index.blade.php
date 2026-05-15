@@ -76,8 +76,12 @@
                         <td>{{ $doctor->specialist }}</td>
                         <td>
                           <div class="btn-group" role="group" aria-label="Doctor action">
-                            <button type="button" class="btn btn-default">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <a href="{{ route('backends.doctors.edit', $doctor->id) }}" class="btn btn-default">Edit</a>
+                            <form action="{{ route('backends.doctors.destroy', $doctor->id) }}" method="POST" style="display: inline-block;">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                           </div>
                         </td>
                       </tr>

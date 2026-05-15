@@ -26,4 +26,23 @@ class DoctorController extends Controller
         Doctor::create($request->all());
         return redirect()->route('backends.doctors.index');
     }
+
+    public function edit(Doctor $doctor)
+    {
+        return view('backends.doctors.edit', [
+            'doctor' => $doctor
+        ]);
+    }
+
+    public function update(Doctor $doctor, Request $request)
+    {
+        $doctor->update($request->all());
+        return redirect()->route('backends.doctors.index');
+    }
+
+    public function destroy(Doctor $doctor)
+    {
+        $doctor->delete();
+        return redirect()->route('backends.doctors.index');
+    }
 }

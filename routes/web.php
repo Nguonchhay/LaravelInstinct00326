@@ -17,6 +17,9 @@ Route::group([
         Route::get('/', [App\Http\Controllers\Backends\DoctorController::class, 'index'])->name('backends.doctors.index');
         Route::get('/create', [App\Http\Controllers\Backends\DoctorController::class, 'create'])->name('backends.doctors.create');
         Route::post('/', [App\Http\Controllers\Backends\DoctorController::class, 'store'])->name('backends.doctors.store');
+        Route::get('/{doctor}/edit', [App\Http\Controllers\Backends\DoctorController::class, 'edit'])->name('backends.doctors.edit');
+        Route::put('/{doctor}/update', [App\Http\Controllers\Backends\DoctorController::class, 'update'])->name('backends.doctors.update');
+        Route::delete('/{doctor}/destroy', [App\Http\Controllers\Backends\DoctorController::class, 'destroy'])->name('backends.doctors.destroy');
     });
    
 });
